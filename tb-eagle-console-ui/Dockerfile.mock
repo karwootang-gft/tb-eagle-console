@@ -5,7 +5,10 @@ WORKDIR /data
 
 COPY mocks .
 
+RUN ["chmod", "+x", "run.sh"]
+
 EXPOSE 80
 
-ENTRYPOINT ["bash", "/run.sh"]
-CMD []  
+ENTRYPOINT ["bash", "run.sh"]
+
+CMD []

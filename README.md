@@ -19,9 +19,12 @@ sudo apt-get install -y nodejs
 git clone https://github.com/tranquilitybase-io/tb-eagle-console.git
 cd tb-eagle-console/tb-eagle-console-ui
 npm install --production
+npm install -g @angular/cli@8
 npm run build
-export PROJ_NAME="tb-eagle-console-example"
+export PROJ_NAME="tranquility-base-images"
 gcloud config set project $PROJ_NAME
 docker build -t gcr.io/$PROJ_NAME/tb-eagle-console-ui:alpha .
 docker push gcr.io/$PROJ_NAME/tb-eagle-console-ui:alpha
+docker build -f Dockerfile.mock -t gcr.io/$PROJ_NAME/tb-eagle-console-ui:mock .
+docker push gcr.io/$PROJ_NAME/tb-eagle-console-ui:mock
 ```
