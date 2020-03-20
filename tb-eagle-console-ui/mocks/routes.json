@@ -1,15 +1,15 @@
 {
-  "/api/application": "/api/applications",
-  "/api/application/*": "/api/applications/$1",
-  "/api/activator/*": "/api/activators/$1",
-  "/api/keyValues/businessUnit": "/businessUnit",
-  "/api/keyValues/cd": "/cd",
-  "/api/keyValues/ci": "/ci",
-  "/api/keyValues/environment": "/environment",
-  "/api/keyValues/sourceControl": "/sourceControl",
-  "/api/keyValues/team": "/team",
-  "/api/solution/*": "/solutions/$1",
-  "/api/landingzoneaction/*": "/landingzoneactions/$1",
-  "/api/landingzoneprogressitem/*": "/landingzoneprogressitems/$1",
-  "/api/*": "/$1"
+  "/alpha/application": "/applications",
+  "/alpha/application/*": "/applications/$1",
+  "/alpha/activator/*": "/activators/$1",
+  "/alpha/keyValues/businessUnit": "/businessUnit",
+  "/alpha/keyValues/cd": "/cd",
+  "/alpha/keyValues/ci": "/ci",
+  "/alpha/keyValues/environment": "/environment",
+  "/alpha/keyValues/sourceControl": "/sourceControl",
+  "/alpha/keyValues/team": "/team",
+  "/alpha/solution/*": "/solutions/$1",
+  "/alpha/landingzoneaction/*": "/landingzoneactions/$1",
+  "/alpha/landingzoneprogressitem/*": "/landingzoneprogressitems/$1",
+  "/alpha/*": "/$1"
 }

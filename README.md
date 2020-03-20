@@ -19,8 +19,6 @@ sudo apt-get install -y nodejs
 git clone https://github.com/tranquilitybase-io/tb-eagle-console.git
 cd tb-eagle-console/tb-eagle-console-ui
 npm install --production
-export API_URL="http://api.url.address:example"
-sed 's+API_URL+$API_URL+g' src/environments/environment.dev.ts > src/environments/environment.prod.ts
 npm run build
 export PROJ_NAME="tb-eagle-console-example"
 gcloud config set project $PROJ_NAME
