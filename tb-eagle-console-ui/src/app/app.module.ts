@@ -40,7 +40,7 @@ const routes: Routes = [
 ];
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: `${globalThis.location.origin}/api/alpha`,
+  root: `${globalThis.location.origin}/api`,
   timeout: 1000 * 60
 };
 
