@@ -116,5 +116,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Tag Images
       run: |
-        docker tag gcr.io/eagle-console-resources/tb-eagle-console:ci "gcr.io/tranquility-base-images/tb-eagle-console:internal-v${{ steps.get_version.outputs.version }}"
+        docker tag gcr.io/tranquility-base-images/tb-eagle-console:ci "gcr.io/tranquility-base-images/tb-eagle-console:internal-v${{ steps.get_version.outputs.version }}"
         docker push "gcr.io/tranquility-base-images/tb-eagle-console:internal-v${{ steps.get_version.outputs.version }}"
