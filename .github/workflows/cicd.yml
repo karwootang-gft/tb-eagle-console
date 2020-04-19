@@ -38,9 +38,10 @@ jobs:
         python-version: 3.6
     - name: Install dependencies
       run: |
-        ls -alrt
-        python -m pip install --upgrade pip
-        pip install -r ${GITHUB_WORKSPACE}/requirements.txt
+        #python -m pip install --upgrade pip
+        # TODO Remember to remove when the code is in master
+        git checkout feature/TB-10
+        #pip install -r ${GITHUB_WORKSPACE}/TranquilityBase/requirements.txt
     - name: Lint with flake8
       run: |
         pip install flake8
@@ -59,24 +60,25 @@ jobs:
     - name: Build Eagle Console Image
       shell: bash
       run: |
-        cd ${GITHUB_WORKSPACE}
+        cd ${GITHUB_WORKSPACE}/tb-eagle-console/
+        git checkout feature/eagle-65
         docker build -t gcr.io/tranquility-base-images/tb-eagle-console:ci .
         docker push gcr.io/tranquility-base-images/tb-eagle-console:ci
 
     - name: Start Docker Compose
       shell: bash
       run: |
-        docker-compose -f eagle_ci_stable.yml up > eagle_ci_stable.log 2>&1 &
+        docker-compose -f ${GITHUB_WORKSPACE}/tb-eagle-console/eagle_ci_stable.yml up > eagle_ci_stable.log 2>&1 &
 
     - name: Give Services time to initialize (abort if elapsed time is greater than 10 minutes)
       shell: bash
       run: |
         start_epoch="$(date -u +%s)"
         elapsed_seconds=0
-        until [ $(docker-compose -f eagle_ci_stable.yml ps | grep Up | wc -l) -eq 2 ] || [ $elapsed_seconds -ge 600 ]
+        until [ $(docker-compose -f ${GITHUB_WORKSPACE}/tb-eagle-console/eagle_ci_stable.yml ps | grep Up | wc -l) -eq 2 ] || [ $elapsed_seconds -ge 600 ]
         do
           sleep 30
-          docker-compose -f eagle_ci_stable.yml ps
+          docker-compose -f ${GITHUB_WORKSPACE}/tb-eagle-console/eagle_ci_stable.yml ps
           current_epoch="$(date -u +%s)"
           elapsed_seconds="$(($current_epoch-$start_epoch))"
           echo "Elapsed seconds: ${elapsed_seconds}"
@@ -86,7 +88,8 @@ jobs:
     - name: run semver, store in step variable version
       shell: bash
       run: |
-        echo "##[set-output name=version;]$(python scripts/semver.py ${{ steps.extract_branch.outputs.branch }})"
+        cd ${GITHUB_WORKSPACE}/tb-eagle-console/
+        echo "##[set-output name=version;]$(python ${GITHUB_WORKSPACE}/TranquilityBase/scripts/semver.py ${{ steps.extract_branch.outputs.branch }})"
       id: get_version
     - name: check if version variable is set
       shell: bash
