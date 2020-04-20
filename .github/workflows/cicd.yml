@@ -41,6 +41,7 @@ jobs:
         python -m pip install --upgrade pip
         # TODO Remember to remove when the code is in master
         cd ${GITHUB_WORKSPACE}/TranquilityBase/
+        git pull
         git checkout feature/TB-10
         pip install -r ${GITHUB_WORKSPACE}/TranquilityBase/requirements.txt
 
