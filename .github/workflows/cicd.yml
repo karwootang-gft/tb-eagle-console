@@ -54,6 +54,10 @@ jobs:
     - name: Build Eagle Console Image
       shell: bash
       run: | 
+        cd ${GITHUB_WORKSPACE}/tb-eagle-console
+        sudo apt-get install -y nodejs
+        npm install --production
+        npm run build
         docker build -t gcr.io/tranquility-base-images/tb-houston-service:ci .
         docker push gcr.io/tranquility-base-images/tb-houston-service:ci
 
