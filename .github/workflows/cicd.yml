@@ -19,7 +19,7 @@ jobs:
         path: tb-eagle-console
         fetch-depth: 0
     - run: |
-      export DISPLAY=:99
+      #export DISPLAY=:99
       which chromedriver
       #chromedriver --url-base=/wd/hub &
       chromedriver &
