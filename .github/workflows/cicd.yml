@@ -40,11 +40,11 @@ jobs:
     - name: Install dependencies
       shell: bash
       run: |
-        python -m pip install --upgrade pip
-        # TODO Remember to remove when the code is in master
         cd ${GITHUB_WORKSPACE}/tb-eagle-console/
-
-
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        npm install --production
+        npm run build
 
     ### Continuous Deployment (We get here when all automated tests pass)
     - name: run semver, store in step variable version
