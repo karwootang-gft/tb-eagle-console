@@ -42,6 +42,7 @@ jobs:
       shell: bash
       run: |
         cd ${GITHUB_WORKSPACE}/tb-eagle-console/
+        pwd
         echo "##[set-output name=version;]$(python ${GITHUB_WORKSPACE}/TranquilityBase/scripts/semver.py ${{ steps.extract_branch.outputs.branch }})"
       id: get_version
     - name: check if version variable is set
