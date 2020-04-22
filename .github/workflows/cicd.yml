@@ -40,21 +40,17 @@ jobs:
     - name: Install dependencies
       shell: bash
       run: |
-        env
-        pwd
-        ls -alrt 
         cd ${GITHUB_WORKSPACE}/tb-eagle-console/
         curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         sudo apt-get install -y nodejs
-        #npm install --production
         npm install
-        npm run build
+        npm run test
 
     ### Continuous Deployment (We get here when all automated tests pass)
     - name: run semver, store in step variable version
       shell: bash
       run: |
-        cd ${GITHUB_WORKSPACE}/TranquilityBase/
+        cd ${GITHUB_WORKSPACE}/tb-eagle-console/
         echo "##[set-output name=version;]$(python ${GITHUB_WORKSPACE}/TranquilityBase/scripts/semver.py ${{ steps.extract_branch.outputs.branch }})"
       id: get_version
     - name: check if version variable is set
