@@ -5,6 +5,7 @@
 name: Eagle Console - CICD Workflow
 
 on:
+  push
   pull_request:
     branches: [ master ]
 
