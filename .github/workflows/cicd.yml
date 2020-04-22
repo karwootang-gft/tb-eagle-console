@@ -21,10 +21,8 @@ jobs:
     - name: Chromedriver
       shell: bash
       run: |
-      #export DISPLAY=:99
-      which chromedriver
-      #chromedriver --url-base=/wd/hub &
-      chromedriver &
+        export DISPLAY=:99
+        chromedriver --url-base=/wd/hub &
     - name: Install dependencies and run tests
       shell: bash
       run: |
