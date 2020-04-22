@@ -31,7 +31,7 @@ jobs:
       with:
         #repository: tranquilitybase-io/tb-eagle-console
         repository: karwootang-gft/tb-eagle-console
-        path: tbl-eagle-console
+        path: tb-eagle-console
         fetch-depth: 0
     - name: Set up Python 3.6
       uses: actions/setup-python@v1
