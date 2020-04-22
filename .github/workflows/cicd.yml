@@ -20,7 +20,9 @@ jobs:
         fetch-depth: 0
     - run: |
       export DISPLAY=:99
-      chromedriver --url-base=/wd/hub &
+      which chromedriver
+      #chromedriver --url-base=/wd/hub &
+      chromedriver &
     - name: Install dependencies and run tests
       shell: bash
       run: |
