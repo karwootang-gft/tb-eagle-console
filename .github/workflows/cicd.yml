@@ -46,7 +46,8 @@ jobs:
         cd ${GITHUB_WORKSPACE}/tb-eagle-console/
         curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         sudo apt-get install -y nodejs
-        npm install --production
+        #npm install --production
+        npm install
         npm run build
 
     ### Continuous Deployment (We get here when all automated tests pass)
