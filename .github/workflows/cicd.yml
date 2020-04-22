@@ -18,7 +18,9 @@ jobs:
         repository: karwootang-gft/tb-eagle-console
         path: tb-eagle-console
         fetch-depth: 0
-    - run: |
+    - name: Chromedriver
+      shell: bash
+      run: |
       #export DISPLAY=:99
       which chromedriver
       #chromedriver --url-base=/wd/hub &
